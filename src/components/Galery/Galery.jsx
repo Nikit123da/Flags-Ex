@@ -1,36 +1,56 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Gallery.css';
+import FlagBox from '../FlagBox/FlagBox.jsx';
+import Dropdown from '../DropDown/Dropdown.jsx';
+
+function Gallery() {
+  const [flags, setFlags] = useState([]);
+  const [selectedFlag, setSelectedFlag] = useState(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        let response = await axios('https://countriesnow.space/api/v0.1/countries/info?returns=flag');
+        console.log(response.data.data);
+        setFlags(response.data.data); 
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, []);
 
 
-function Galery() {
-
-
-
-        useEffect(() => 
-        {
-            const getData = async (url = 'https://countriesnow.space/api/v0.1/countries/info?returns=flag') => 
-            {
-                try
-                {
-                    let temp =  await axios(url);   
-                } 
-                catch(error)
-                {
-                    console.log(error)
-                }   
-            }
-            getData();
-        },[])
 
   return (
-    <div>
+    <div className='container'>
+      <div>
+        <Dropdown
+          options={flags}               
+          onSelect={(flag) => {
+            setSelectedFlag(flag);     
+          }}
+          onSearch={(flagName) => {
+            setSelectedFlag(flagName)
+          }}
+        />
+      </div>
+
+      <div className='flagsWindow'>
+            {
+                selectedFlag ? (<FlagBox key={0} flagData={selectedFlag} />) //if selected
+                : //else
+                ( 
+                    flags && flags.map((flagData, index) => (
+                    <FlagBox key={index} flagData={flagData} />
+                    ))
+                )
+            }
+      </div>
 
     </div>
-  )
+  );
 }
 
-//? yarn build - builds the site template for you, can add the dist folder into the netlify to make the site 
-//? avaliable, or add the dsit folder to the calssroom to send the task.
-
-export default Galery
+export default Gallery;

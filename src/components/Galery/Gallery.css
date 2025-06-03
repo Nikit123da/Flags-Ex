@@ -1,0 +1,25 @@
+.container{
+
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    width: 100vh;
+    flex-direction:column ;
+}
+
+.flagsWindow
+
+{  
+    z-index: 1;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 3px red solid;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    flex-direction: row;
+}
+

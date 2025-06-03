@@ -1,13 +1,13 @@
 import React from 'react'
+import './flagBox.css'
 
-function FlagBox(flagData) {
+function FlagBox({flagData}) {
   return (
-    <div>
-        <div>
-            <h2>{flagData.flagName}</h2>
-            <img src = {flagData.img} alt = {flagData.flagName}/>
+    <div className='Flagscontainer'>
+        <div className='flagContaier'>
+            <h2>{flagData.name}</h2>
+            <img src = {flagData.flag}/>
         </div>
-
     </div>
   )
 }

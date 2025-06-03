@@ -1,0 +1,39 @@
+.dropdown {
+    width: 200px;
+    margin: 20px;
+    height: 10vh;
+  }
+  
+  .dropdownBar {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    z-index: 2;
+    position: relative;
+    color: black;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    max-height: 20vh;
+  }
+  
+  .item {
+    display: flex;
+    color: black;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+  }
+  
+  .insideBar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .img {
+    width: 20px;
+    margin: 8px;
+  }
+  

@@ -1,0 +1,31 @@
+.Flagscontainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 30%;
+    height: 40%;
+}
+
+.flagContaier {
+    position: relative;
+    display: flex;
+    justify-content:center ;
+    text-align: center;
+    z-index: 2;
+    color: black;
+}
+
+img {
+    z-index: 1;
+    max-width: 80%;
+    display: block;
+}
+
+h2 {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    margin: 0;
+}
